@@ -173,12 +173,12 @@
     },
     "frontend": {
       "competencias": [
-        {"id": "html_css",        "nome": "HTML semântico e CSS responsivo", "nivel_junior": 2, "importancia": 3, "tecnologias": ["HTML5", "CSS3", "Flexbox", "Grid"]},
-        {"id": "javascript",      "nome": "JavaScript e TypeScript",         "nivel_junior": 2, "importancia": 3, "tecnologias": ["JavaScript ES6+", "TypeScript", "DOM"]},
-        {"id": "framework_front", "nome": "Framework reativo",               "nivel_junior": 2, "importancia": 3, "tecnologias": ["React", "Vue", "Angular"]},
-        {"id": "ux_ui",           "nome": "Fundamentos de UX/UI",            "nivel_junior": 1, "importancia": 2, "tecnologias": ["Figma", "Acessibilidade (WCAG)", "Design System"]},
-        {"id": "consumo_api",     "nome": "Consumo de APIs",                 "nivel_junior": 2, "importancia": 2, "tecnologias": ["Fetch", "Axios", "REST", "JSON"]},
-        {"id": "git",             "nome": "Versionamento com Git",           "nivel_junior": 2, "importancia": 2, "tecnologias": ["Git", "GitHub"]}
+        {"id": "html_css", "nome": "HTML semântico e CSS responsivo", "nivel_junior": 2, "importancia": 3, "tecnologias": ["HTML5", "CSS3", "Flexbox", "Grid"]},
+        {"id": "javascript", "nome": "JavaScript e TypeScript", "nivel_junior": 2, "importancia": 3, "tecnologias": ["JavaScript ES6+", "TypeScript", "DOM"]},
+        {"id": "framework_front", "nome": "Framework reativo", "nivel_junior": 2, "importancia": 3, "tecnologias": ["React", "Vue", "Angular"]},
+        {"id": "ux_ui", "nome": "Fundamentos de UX/UI", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Figma", "Acessibilidade (WCAG)", "Design System"]},
+        {"id": "consumo_api", "nome": "Consumo de APIs", "nivel_junior": 2, "importancia": 2, "tecnologias": ["Fetch", "Axios", "REST", "JSON"]},
+        {"id": "git", "nome": "Versionamento com Git", "nivel_junior": 2, "importancia": 2, "tecnologias": ["Git", "GitHub"]}
       ],
       "certificacoes": [
         {"nome": "Responsive Web Design", "emissor": "freeCodeCamp", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -193,12 +193,12 @@
     },
     "dados_ml": {
       "competencias": [
-        {"id": "python_dados",  "nome": "Python para dados",                   "nivel_junior": 2, "importancia": 3, "tecnologias": ["Python", "Pandas", "NumPy", "Jupyter"]},
-        {"id": "estatistica",   "nome": "Estatística e probabilidade",         "nivel_junior": 2, "importancia": 3, "tecnologias": ["Estatística descritiva", "Inferência", "Testes de hipótese"]},
-        {"id": "ml",            "nome": "Machine Learning supervisionado",     "nivel_junior": 2, "importancia": 3, "tecnologias": ["scikit-learn", "Regressão", "Classificação", "Validação cruzada"]},
-        {"id": "sql_analise",   "nome": "SQL para análise",                    "nivel_junior": 2, "importancia": 2, "tecnologias": ["SQL", "PostgreSQL", "BigQuery"]},
-        {"id": "visualizacao",  "nome": "Visualização e comunicação de dados", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Matplotlib", "Seaborn", "Power BI"]},
-        {"id": "deep_learning", "nome": "Fundamentos de Deep Learning",        "nivel_junior": 1, "importancia": 1, "tecnologias": ["PyTorch", "TensorFlow", "Redes neurais"]}
+        {"id": "python_dados", "nome": "Python para dados", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Python", "Pandas", "NumPy", "Jupyter"]},
+        {"id": "estatistica", "nome": "Estatística e probabilidade", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Estatística descritiva", "Inferência", "Testes de hipótese"]},
+        {"id": "ml", "nome": "Machine Learning supervisionado", "nivel_junior": 2, "importancia": 3, "tecnologias": ["scikit-learn", "Regressão", "Classificação", "Validação cruzada"]},
+        {"id": "sql_analise", "nome": "SQL para análise", "nivel_junior": 2, "importancia": 2, "tecnologias": ["SQL", "PostgreSQL", "BigQuery"]},
+        {"id": "visualizacao", "nome": "Visualização e comunicação de dados", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Matplotlib", "Seaborn", "Power BI"]},
+        {"id": "deep_learning", "nome": "Fundamentos de Deep Learning", "nivel_junior": 1, "importancia": 1, "tecnologias": ["PyTorch", "TensorFlow", "Redes neurais"]}
       ],
       "certificacoes": [
         {"nome": "Google Data Analytics Professional Certificate", "emissor": "Google / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -213,12 +213,12 @@
     },
     "eng_dados": {
       "competencias": [
-        {"id": "python_eng",    "nome": "Python para engenharia de dados",       "nivel_junior": 2, "importancia": 3, "tecnologias": ["Python", "Pandas", "PySpark"]},
-        {"id": "sql_modelagem", "nome": "SQL avançado e modelagem dimensional",  "nivel_junior": 2, "importancia": 3, "tecnologias": ["SQL", "Star Schema", "PostgreSQL"]},
-        {"id": "etl",           "nome": "Pipelines ETL/ELT e orquestração",      "nivel_junior": 2, "importancia": 3, "tecnologias": ["Apache Airflow", "dbt", "Cron"]},
-        {"id": "big_data",      "nome": "Processamento distribuído",             "nivel_junior": 1, "importancia": 2, "tecnologias": ["Apache Spark", "Kafka", "Parquet"]},
-        {"id": "cloud_dados",   "nome": "Armazenamento de dados em nuvem",       "nivel_junior": 1, "importancia": 2, "tecnologias": ["Amazon S3", "BigQuery", "Data Lake", "Snowflake"]},
-        {"id": "docker_basico", "nome": "Contêineres e Linux",                   "nivel_junior": 1, "importancia": 1, "tecnologias": ["Docker", "Linux", "Bash"]}
+        {"id": "python_eng", "nome": "Python para engenharia de dados", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Python", "Pandas", "PySpark"]},
+        {"id": "sql_modelagem", "nome": "SQL avançado e modelagem dimensional", "nivel_junior": 2, "importancia": 3, "tecnologias": ["SQL", "Star Schema", "PostgreSQL"]},
+        {"id": "etl", "nome": "Pipelines ETL/ELT e orquestração", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Apache Airflow", "dbt", "Cron"]},
+        {"id": "big_data", "nome": "Processamento distribuído", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Apache Spark", "Kafka", "Parquet"]},
+        {"id": "cloud_dados", "nome": "Armazenamento de dados em nuvem", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Amazon S3", "BigQuery", "Data Lake", "Snowflake"]},
+        {"id": "docker_basico", "nome": "Contêineres e Linux", "nivel_junior": 1, "importancia": 1, "tecnologias": ["Docker", "Linux", "Bash"]}
       ],
       "certificacoes": [
         {"nome": "dbt Fundamentals", "emissor": "dbt Labs", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -233,12 +233,12 @@
     },
     "seguranca": {
       "competencias": [
-        {"id": "redes",           "nome": "Redes de computadores (TCP/IP)",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["TCP/IP", "DNS", "Wireshark", "Firewalls"]},
-        {"id": "linux_seg",       "nome": "Linux e linha de comando",                "nivel_junior": 2, "importancia": 3, "tecnologias": ["Linux", "Bash", "Permissões"]},
+        {"id": "redes", "nome": "Redes de computadores (TCP/IP)", "nivel_junior": 2, "importancia": 3, "tecnologias": ["TCP/IP", "DNS", "Wireshark", "Firewalls"]},
+        {"id": "linux_seg", "nome": "Linux e linha de comando", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Linux", "Bash", "Permissões"]},
         {"id": "fundamentos_seg", "nome": "Fundamentos de segurança e criptografia", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Tríade CIA", "Criptografia", "PKI", "OWASP Top 10"]},
-        {"id": "pentest",         "nome": "Análise de vulnerabilidades e pentest",   "nivel_junior": 1, "importancia": 2, "tecnologias": ["Nmap", "Burp Suite", "Metasploit", "Kali Linux"]},
-        {"id": "scripting_seg",   "nome": "Scripting para segurança",                "nivel_junior": 1, "importancia": 2, "tecnologias": ["Python", "Bash", "PowerShell"]},
-        {"id": "monitoramento",   "nome": "Monitoramento e resposta a incidentes",   "nivel_junior": 1, "importancia": 2, "tecnologias": ["SIEM", "Wazuh", "Splunk", "Análise de logs"]}
+        {"id": "pentest", "nome": "Análise de vulnerabilidades e pentest", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Nmap", "Burp Suite", "Metasploit", "Kali Linux"]},
+        {"id": "scripting_seg", "nome": "Scripting para segurança", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Python", "Bash", "PowerShell"]},
+        {"id": "monitoramento", "nome": "Monitoramento e resposta a incidentes", "nivel_junior": 1, "importancia": 2, "tecnologias": ["SIEM", "Wazuh", "Splunk", "Análise de logs"]}
       ],
       "certificacoes": [
         {"nome": "Certified in Cybersecurity (CC)", "emissor": "ISC2", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -253,12 +253,12 @@
     },
     "devops": {
       "competencias": [
-        {"id": "linux_devops",    "nome": "Linux e Shell Script",             "nivel_junior": 2, "importancia": 3, "tecnologias": ["Linux", "Bash", "SSH"]},
-        {"id": "git_ci",          "nome": "Git e CI/CD",                      "nivel_junior": 2, "importancia": 3, "tecnologias": ["Git", "GitHub Actions", "GitLab CI", "Jenkins"]},
-        {"id": "containers",      "nome": "Contêineres e orquestração",       "nivel_junior": 2, "importancia": 3, "tecnologias": ["Docker", "Docker Compose", "Kubernetes"]},
-        {"id": "iac",             "nome": "Infraestrutura como código",       "nivel_junior": 1, "importancia": 2, "tecnologias": ["Terraform", "Ansible"]},
-        {"id": "observabilidade", "nome": "Monitoramento e observabilidade",  "nivel_junior": 1, "importancia": 2, "tecnologias": ["Prometheus", "Grafana", "Alertas"]},
-        {"id": "cloud_basico",    "nome": "Fundamentos de nuvem",             "nivel_junior": 1, "importancia": 2, "tecnologias": ["AWS", "Azure", "GCP"]}
+        {"id": "linux_devops", "nome": "Linux e Shell Script", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Linux", "Bash", "SSH"]},
+        {"id": "git_ci", "nome": "Git e CI/CD", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Git", "GitHub Actions", "GitLab CI", "Jenkins"]},
+        {"id": "containers", "nome": "Contêineres e orquestração", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Docker", "Docker Compose", "Kubernetes"]},
+        {"id": "iac", "nome": "Infraestrutura como código", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Terraform", "Ansible"]},
+        {"id": "observabilidade", "nome": "Monitoramento e observabilidade", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Prometheus", "Grafana", "Alertas"]},
+        {"id": "cloud_basico", "nome": "Fundamentos de nuvem", "nivel_junior": 1, "importancia": 2, "tecnologias": ["AWS", "Azure", "GCP"]}
       ],
       "certificacoes": [
         {"nome": "Linux Essentials", "emissor": "Linux Professional Institute (LPI)", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -273,12 +273,12 @@
     },
     "cloud": {
       "competencias": [
-        {"id": "fundamentos_cloud", "nome": "Conceitos de computação em nuvem",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["IaaS/PaaS/SaaS", "Regiões e zonas", "Responsabilidade compartilhada"]},
-        {"id": "servicos_core",     "nome": "Serviços essenciais (computação, armazenamento, rede)", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Amazon EC2", "Amazon S3", "Azure VMs", "Blob Storage"]},
-        {"id": "redes_cloud",       "nome": "Redes e segurança na nuvem",                "nivel_junior": 2, "importancia": 2, "tecnologias": ["VPC", "Sub-redes", "Security Groups", "IAM"]},
-        {"id": "iac",               "nome": "Infraestrutura como código",                "nivel_junior": 1, "importancia": 2, "tecnologias": ["Terraform", "CloudFormation", "Bicep"]},
-        {"id": "custos",            "nome": "Gestão de custos (FinOps)",                 "nivel_junior": 1, "importancia": 2, "tecnologias": ["AWS Cost Explorer", "Budgets", "Tags de custo"]},
-        {"id": "containers",        "nome": "Contêineres e serverless",                  "nivel_junior": 1, "importancia": 2, "tecnologias": ["Docker", "AWS Lambda", "Amazon ECS", "Kubernetes"]}
+        {"id": "fundamentos_cloud", "nome": "Conceitos de computação em nuvem", "nivel_junior": 2, "importancia": 3, "tecnologias": ["IaaS/PaaS/SaaS", "Regiões e zonas", "Responsabilidade compartilhada"]},
+        {"id": "servicos_core", "nome": "Serviços essenciais (computação, armazenamento, rede)", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Amazon EC2", "Amazon S3", "Azure VMs", "Blob Storage"]},
+        {"id": "redes_cloud", "nome": "Redes e segurança na nuvem", "nivel_junior": 2, "importancia": 2, "tecnologias": ["VPC", "Sub-redes", "Security Groups", "IAM"]},
+        {"id": "iac", "nome": "Infraestrutura como código", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Terraform", "CloudFormation", "Bicep"]},
+        {"id": "custos", "nome": "Gestão de custos (FinOps)", "nivel_junior": 1, "importancia": 2, "tecnologias": ["AWS Cost Explorer", "Budgets", "Tags de custo"]},
+        {"id": "containers", "nome": "Contêineres e serverless", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Docker", "AWS Lambda", "Amazon ECS", "Kubernetes"]}
       ],
       "certificacoes": [
         {"nome": "AWS Certified Cloud Practitioner", "emissor": "Amazon Web Services", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -293,12 +293,12 @@
     },
     "mobile": {
       "competencias": [
-        {"id": "linguagem_mobile", "nome": "Linguagem para mobile",                  "nivel_junior": 2, "importancia": 3, "tecnologias": ["Kotlin", "Swift", "Dart"]},
-        {"id": "framework_mobile", "nome": "Framework de interface mobile",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["Jetpack Compose", "SwiftUI", "Flutter", "React Native"]},
-        {"id": "consumo_api",      "nome": "Consumo de APIs e persistência local",   "nivel_junior": 2, "importancia": 2, "tecnologias": ["Retrofit", "REST", "SQLite", "Room"]},
-        {"id": "ux_mobile",        "nome": "UX para dispositivos móveis",            "nivel_junior": 1, "importancia": 2, "tecnologias": ["Material Design", "Human Interface Guidelines"]},
-        {"id": "publicacao",       "nome": "Publicação nas lojas",                   "nivel_junior": 1, "importancia": 1, "tecnologias": ["Google Play Console", "App Store Connect"]},
-        {"id": "git",              "nome": "Versionamento com Git",                  "nivel_junior": 2, "importancia": 2, "tecnologias": ["Git", "GitHub"]}
+        {"id": "linguagem_mobile", "nome": "Linguagem para mobile", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Kotlin", "Swift", "Dart"]},
+        {"id": "framework_mobile", "nome": "Framework de interface mobile", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Jetpack Compose", "SwiftUI", "Flutter", "React Native"]},
+        {"id": "consumo_api", "nome": "Consumo de APIs e persistência local", "nivel_junior": 2, "importancia": 2, "tecnologias": ["Retrofit", "REST", "SQLite", "Room"]},
+        {"id": "ux_mobile", "nome": "UX para dispositivos móveis", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Material Design", "Human Interface Guidelines"]},
+        {"id": "publicacao", "nome": "Publicação nas lojas", "nivel_junior": 1, "importancia": 1, "tecnologias": ["Google Play Console", "App Store Connect"]},
+        {"id": "git", "nome": "Versionamento com Git", "nivel_junior": 2, "importancia": 2, "tecnologias": ["Git", "GitHub"]}
       ],
       "certificacoes": [
         {"nome": "Meta Android Developer Professional Certificate", "emissor": "Meta / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -313,12 +313,12 @@
     },
     "qa": {
       "competencias": [
-        {"id": "fundamentos_teste", "nome": "Fundamentos e técnicas de teste",      "nivel_junior": 2, "importancia": 3, "tecnologias": ["Casos de teste", "Partição de equivalência", "Valor limite", "BDD"]},
-        {"id": "automacao_ui",      "nome": "Automação de testes de interface",     "nivel_junior": 2, "importancia": 3, "tecnologias": ["Selenium", "Cypress", "Playwright"]},
-        {"id": "testes_api",        "nome": "Testes de API",                        "nivel_junior": 2, "importancia": 2, "tecnologias": ["Postman", "REST Assured", "pytest"]},
-        {"id": "programacao_qa",    "nome": "Programação para testes",              "nivel_junior": 2, "importancia": 2, "tecnologias": ["Python", "JavaScript", "Java"]},
-        {"id": "ci_testes",         "nome": "Testes em pipelines de CI/CD",         "nivel_junior": 1, "importancia": 2, "tecnologias": ["GitHub Actions", "Jenkins", "Relatórios de teste"]},
-        {"id": "gestao_bugs",       "nome": "Gestão de bugs e métricas de qualidade", "nivel_junior": 1, "importancia": 1, "tecnologias": ["Jira", "Relato de bugs", "Métricas de qualidade"]}
+        {"id": "fundamentos_teste", "nome": "Fundamentos e técnicas de teste", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Casos de teste", "Partição de equivalência", "Valor limite", "BDD"]},
+        {"id": "automacao_ui", "nome": "Automação de testes de interface", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Selenium", "Cypress", "Playwright"]},
+        {"id": "testes_api", "nome": "Testes de API", "nivel_junior": 2, "importancia": 2, "tecnologias": ["Postman", "REST Assured", "pytest"]},
+        {"id": "programacao_qa", "nome": "Programação para testes", "nivel_junior": 2, "importancia": 2, "tecnologias": ["Python", "JavaScript", "Java"]},
+        {"id": "ci_testes", "nome": "Testes em pipelines de CI/CD", "nivel_junior": 1, "importancia": 2, "tecnologias": ["GitHub Actions", "Jenkins", "Relatórios de teste"]},
+        {"id": "gestao_bugs", "nome": "Gestão de bugs e métricas de qualidade", "nivel_junior": 1, "importancia": 1, "tecnologias": ["Jira", "Relato de bugs", "Métricas de qualidade"]}
       ],
       "certificacoes": [
         {"nome": "ISTQB Certified Tester Foundation Level (CTFL)", "emissor": "ISTQB / BSTQB", "nivel_entrada": "iniciante", "prontidao_minima": 0},
@@ -333,12 +333,12 @@
     },
     "produto": {
       "competencias": [
-        {"id": "discovery",       "nome": "Product discovery e pesquisa com usuários", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Entrevistas", "Personas", "Jobs to be Done"]},
-        {"id": "agil",            "nome": "Métodos ágeis",                             "nivel_junior": 2, "importancia": 3, "tecnologias": ["Scrum", "Kanban", "Jira"]},
-        {"id": "priorizacao",     "nome": "Priorização e roadmap de produto",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["RICE", "MoSCoW", "OKRs"]},
-        {"id": "metricas",        "nome": "Métricas e análise de produto",             "nivel_junior": 1, "importancia": 2, "tecnologias": ["KPIs", "Funil de conversão", "Google Analytics", "SQL básico"]},
-        {"id": "fundamentos_tec", "nome": "Fundamentos técnicos de software",          "nivel_junior": 1, "importancia": 2, "tecnologias": ["APIs", "Arquitetura web", "Ciclo de desenvolvimento"]},
-        {"id": "prototipacao",    "nome": "Prototipação e UX",                         "nivel_junior": 1, "importancia": 1, "tecnologias": ["Figma", "Wireframes", "Testes de usabilidade"]}
+        {"id": "discovery", "nome": "Product discovery e pesquisa com usuários", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Entrevistas", "Personas", "Jobs to be Done"]},
+        {"id": "agil", "nome": "Métodos ágeis", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Scrum", "Kanban", "Jira"]},
+        {"id": "priorizacao", "nome": "Priorização e roadmap de produto", "nivel_junior": 2, "importancia": 3, "tecnologias": ["RICE", "MoSCoW", "OKRs"]},
+        {"id": "metricas", "nome": "Métricas e análise de produto", "nivel_junior": 1, "importancia": 2, "tecnologias": ["KPIs", "Funil de conversão", "Google Analytics", "SQL básico"]},
+        {"id": "fundamentos_tec", "nome": "Fundamentos técnicos de software", "nivel_junior": 1, "importancia": 2, "tecnologias": ["APIs", "Arquitetura web", "Ciclo de desenvolvimento"]},
+        {"id": "prototipacao", "nome": "Prototipação e UX", "nivel_junior": 1, "importancia": 1, "tecnologias": ["Figma", "Wireframes", "Testes de usabilidade"]}
       ],
       "certificacoes": [
         {"nome": "Google Project Management Professional Certificate", "emissor": "Google / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 0},
