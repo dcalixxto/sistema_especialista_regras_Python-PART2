@@ -1,0 +1,142 @@
+{
+  "versao": "2.0",
+  "descricao": "Base de conhecimento do Consultor Avançado de Carreiras em TI. Cada regra SE-ENTÃO tem um peso; o grau de ativação vem das respostas na escala Likert (1 a 5).",
+  "parametros": {
+    "limiar_empate": 5.0,
+    "limiar_regra_forte": 0.75
+  },
+  "escala": {
+    "min": 1,
+    "max": 5,
+    "rotulos": {
+      "1": "Nenhuma afinidade",
+      "2": "Pouca afinidade",
+      "3": "Afinidade moderada",
+      "4": "Muita afinidade",
+      "5": "Total afinidade"
+    }
+  },
+  "etapas": [
+    {"id": "perfil", "titulo": "Perfil pessoal", "descricao": "Como você trabalha e se relaciona."},
+    {"id": "afinidades", "titulo": "Afinidades técnicas", "descricao": "Quanto você gosta de cada área técnica."},
+    {"id": "objetivos", "titulo": "Objetivos de carreira", "descricao": "Que tipo de resultado você quer entregar."}
+  ],
+  "trilhas": {
+    "backend":   {"nome": "Desenvolvimento Back-end", "icone": "🧩", "descricao": "Lógica de servidores, construção de APIs, regras de negócio e bancos de dados."},
+    "frontend":  {"nome": "Desenvolvimento Front-end & UI/UX", "icone": "🎨", "descricao": "Interfaces web responsivas, experiência do usuário e frameworks reativos."},
+    "dados_ml":  {"nome": "Ciência de Dados e Machine Learning", "icone": "🧠", "descricao": "Estatística, modelagem preditiva, análise de dados e IA."},
+    "eng_dados": {"nome": "Engenharia de Dados", "icone": "🛢️", "descricao": "Pipelines ETL/ELT, arquitetura de dados e infraestrutura para Data Lakes."},
+    "seguranca": {"nome": "Cibersegurança (Security / Pentesting)", "icone": "🛡️", "descricao": "Defesa cibernética, análise de vulnerabilidades, criptografia e redes seguras."},
+    "devops":    {"nome": "DevOps & SRE", "icone": "⚙️", "descricao": "Automação, integração e entrega contínua (CI/CD), contêineres e confiabilidade."},
+    "cloud":     {"nome": "Cloud Architecture", "icone": "☁️", "descricao": "Planejamento, migração e gestão de infraestruturas escaláveis (AWS/Azure/GCP)."},
+    "mobile":    {"nome": "Desenvolvimento Mobile", "icone": "📱", "descricao": "Apps nativos ou multiplataforma (Kotlin, Swift, Flutter, React Native)."},
+    "qa":        {"nome": "Engenharia de Qualidade e Testes (QA)", "icone": "🔍", "descricao": "Testes automatizados, confiabilidade de software e processos de qualidade."},
+    "produto":   {"nome": "Product Management", "icone": "📊", "descricao": "Ponte entre negócio, design e desenvolvimento; métodos ágeis e priorização."}
+  },
+  "perguntas": [
+    {"id": "comunicacao",  "etapa": "perfil", "texto": "Gosto de apresentar ideias, negociar e lidar com clientes e equipes."},
+    {"id": "criatividade", "etapa": "perfil", "texto": "Me considero uma pessoa criativa, com senso estético apurado."},
+    {"id": "detalhismo",   "etapa": "perfil", "texto": "Tenho paciência para revisar detalhes e encontrar pequenos erros."},
+    {"id": "pressao",      "etapa": "perfil", "texto": "Lido bem com incidentes e situações de pressão (ex.: sistema fora do ar)."},
+    {"id": "curiosidade",  "etapa": "perfil", "texto": "Gosto de investigar como as coisas podem ser quebradas ou burladas."},
+    {"id": "organizacao",  "etapa": "perfil", "texto": "Gosto de organizar prioridades, planejar e acompanhar entregas."},
+
+    {"id": "matematica",     "etapa": "afinidades", "texto": "Matemática e estatística."},
+    {"id": "logica",         "etapa": "afinidades", "texto": "Lógica de programação e algoritmos."},
+    {"id": "design",         "etapa": "afinidades", "texto": "Design visual, layouts e experiência do usuário."},
+    {"id": "web",            "etapa": "afinidades", "texto": "Desenvolvimento para navegadores (HTML, CSS, JavaScript)."},
+    {"id": "apis",           "etapa": "afinidades", "texto": "APIs, servidores de aplicação e regras de negócio."},
+    {"id": "banco_dados",    "etapa": "afinidades", "texto": "Bancos de dados e SQL."},
+    {"id": "redes_linux",    "etapa": "afinidades", "texto": "Infraestrutura: redes, Linux e sistemas operacionais."},
+    {"id": "seguranca_info", "etapa": "afinidades", "texto": "Segurança da informação e criptografia."},
+    {"id": "automacao",      "etapa": "afinidades", "texto": "Automação de tarefas repetitivas (scripts, pipelines, CI/CD)."},
+    {"id": "mobile",         "etapa": "afinidades", "texto": "Dispositivos móveis (celulares e tablets)."},
+    {"id": "nuvem",          "etapa": "afinidades", "texto": "Plataformas de nuvem (AWS, Azure, GCP)."},
+    {"id": "testes",         "etapa": "afinidades", "texto": "Testes de software e caça a bugs."},
+
+    {"id": "obj_previsoes",      "etapa": "objetivos", "texto": "Criar modelos que descobrem padrões e fazem previsões (IA)."},
+    {"id": "obj_pipelines",      "etapa": "objetivos", "texto": "Garantir que os dados da empresa fluam e fiquem disponíveis de forma confiável."},
+    {"id": "obj_interface",      "etapa": "objetivos", "texto": "Construir o produto que o usuário final vê e usa."},
+    {"id": "obj_sistemas",       "etapa": "objetivos", "texto": "Construir a lógica e as APIs que fazem o sistema funcionar por trás."},
+    {"id": "obj_protecao",       "etapa": "objetivos", "texto": "Proteger sistemas contra invasões e vazamentos."},
+    {"id": "obj_disponibilidade","etapa": "objetivos", "texto": "Manter sistemas no ar e acelerar entregas com automação."},
+    {"id": "obj_escala",         "etapa": "objetivos", "texto": "Desenhar infraestruturas escaláveis e otimizar custos na nuvem."},
+    {"id": "obj_apps",           "etapa": "objetivos", "texto": "Publicar aplicativos nas lojas (Google Play / App Store)."},
+    {"id": "obj_qualidade",      "etapa": "objetivos", "texto": "Garantir que o software funcione sem falhas."},
+    {"id": "obj_estrategia",     "etapa": "objetivos", "texto": "Definir a visão do produto e decidir o que deve ser construído."}
+  ],
+  "regras": [
+    {"id": "R01", "trilha": "backend", "tipo": "afinidade", "peso": 2, "condicao": {"todas": ["logica"]}, "descricao": "SE gosta de lógica e algoritmos ENTÃO Back-end"},
+    {"id": "R02", "trilha": "backend", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["apis"]}, "descricao": "SE gosta de APIs e regras de negócio ENTÃO Back-end"},
+    {"id": "R03", "trilha": "backend", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["banco_dados"]}, "descricao": "SE gosta de bancos de dados ENTÃO Back-end"},
+    {"id": "R04", "trilha": "backend", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_sistemas"]}, "descricao": "SE quer construir a lógica por trás do sistema ENTÃO Back-end"},
+    {"id": "R05", "trilha": "backend", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["logica", "apis", "banco_dados"]}, "descricao": "SE lógica E APIs E bancos de dados ENTÃO perfil construtor de servidor (Back-end)"},
+    {"id": "P01", "trilha": "backend", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["!logica", "!apis"]}, "descricao": "SE não gosta de lógica NEM de APIs ENTÃO penaliza Back-end"},
+
+    {"id": "R06", "trilha": "frontend", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["design"]}, "descricao": "SE gosta de design visual e UX ENTÃO Front-end"},
+    {"id": "R07", "trilha": "frontend", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["web"]}, "descricao": "SE gosta de desenvolvimento web ENTÃO Front-end"},
+    {"id": "R08", "trilha": "frontend", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["criatividade"]}, "descricao": "SE é criativo ENTÃO Front-end"},
+    {"id": "R09", "trilha": "frontend", "tipo": "afinidade", "peso": 2, "condicao": {"todas": ["obj_interface"]}, "descricao": "SE quer construir o produto que o usuário vê ENTÃO Front-end"},
+    {"id": "R10", "trilha": "frontend", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["design", "web"]}, "descricao": "SE design E web ENTÃO perfil Front-end/UI completo"},
+    {"id": "P02", "trilha": "frontend", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["mobile", "!web"]}, "descricao": "SE prefere mobile e não gosta de web ENTÃO penaliza Front-end (Front × Mobile)"},
+
+    {"id": "R11", "trilha": "dados_ml", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["matematica"]}, "descricao": "SE gosta de matemática e estatística ENTÃO Ciência de Dados"},
+    {"id": "R12", "trilha": "dados_ml", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_previsoes"]}, "descricao": "SE quer criar modelos preditivos ENTÃO Ciência de Dados"},
+    {"id": "R13", "trilha": "dados_ml", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["logica"]}, "descricao": "SE gosta de lógica ENTÃO Ciência de Dados"},
+    {"id": "R14", "trilha": "dados_ml", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["banco_dados"]}, "descricao": "SE gosta de bancos de dados ENTÃO Ciência de Dados"},
+    {"id": "R15", "trilha": "dados_ml", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["matematica", "obj_previsoes"]}, "descricao": "SE matemática E modelos preditivos ENTÃO perfil analítico (Ciência de Dados)"},
+    {"id": "P03", "trilha": "dados_ml", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["obj_previsoes", "!matematica"]}, "descricao": "SE quer modelos preditivos mas não gosta de matemática ENTÃO penaliza Ciência de Dados"},
+    {"id": "P04", "trilha": "dados_ml", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["obj_pipelines", "!obj_previsoes"]}, "descricao": "SE prefere pipelines a modelos ENTÃO penaliza Ciência de Dados (Ciência × Engenharia)"},
+
+    {"id": "R16", "trilha": "eng_dados", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["banco_dados"]}, "descricao": "SE gosta de bancos de dados ENTÃO Engenharia de Dados"},
+    {"id": "R17", "trilha": "eng_dados", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_pipelines"]}, "descricao": "SE quer garantir o fluxo confiável de dados ENTÃO Engenharia de Dados"},
+    {"id": "R18", "trilha": "eng_dados", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["automacao"]}, "descricao": "SE gosta de automação ENTÃO Engenharia de Dados"},
+    {"id": "R19", "trilha": "eng_dados", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["nuvem"]}, "descricao": "SE gosta de nuvem ENTÃO Engenharia de Dados (Data Lakes)"},
+    {"id": "R20", "trilha": "eng_dados", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["banco_dados", "obj_pipelines"]}, "descricao": "SE bancos de dados E pipelines ENTÃO perfil Engenharia de Dados"},
+    {"id": "P05", "trilha": "eng_dados", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["obj_previsoes", "!obj_pipelines"]}, "descricao": "SE prefere modelos a pipelines ENTÃO penaliza Engenharia de Dados (Engenharia × Ciência)"},
+
+    {"id": "R21", "trilha": "seguranca", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["seguranca_info"]}, "descricao": "SE gosta de segurança da informação ENTÃO Cibersegurança"},
+    {"id": "R22", "trilha": "seguranca", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_protecao"]}, "descricao": "SE quer proteger sistemas ENTÃO Cibersegurança"},
+    {"id": "R23", "trilha": "seguranca", "tipo": "afinidade", "peso": 2, "condicao": {"todas": ["curiosidade"]}, "descricao": "SE gosta de investigar como burlar sistemas ENTÃO Cibersegurança (mentalidade hacker)"},
+    {"id": "R24", "trilha": "seguranca", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["redes_linux"]}, "descricao": "SE gosta de redes e Linux ENTÃO Cibersegurança"},
+    {"id": "R25", "trilha": "seguranca", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["seguranca_info", "redes_linux"]}, "descricao": "SE segurança E redes/Linux ENTÃO perfil de segurança ofensiva/defensiva"},
+    {"id": "P06", "trilha": "seguranca", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["!seguranca_info", "!obj_protecao"]}, "descricao": "SE não gosta de segurança NEM quer proteger sistemas ENTÃO penaliza Cibersegurança"},
+
+    {"id": "R26", "trilha": "devops", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["automacao"]}, "descricao": "SE gosta de automação ENTÃO DevOps"},
+    {"id": "R27", "trilha": "devops", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_disponibilidade"]}, "descricao": "SE quer manter sistemas no ar e acelerar entregas ENTÃO DevOps/SRE"},
+    {"id": "R28", "trilha": "devops", "tipo": "afinidade", "peso": 2, "condicao": {"todas": ["redes_linux"]}, "descricao": "SE gosta de redes e Linux ENTÃO DevOps"},
+    {"id": "R29", "trilha": "devops", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["pressao"]}, "descricao": "SE lida bem com incidentes ENTÃO SRE"},
+    {"id": "R30", "trilha": "devops", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["automacao", "redes_linux"]}, "descricao": "SE automação E infraestrutura ENTÃO perfil DevOps"},
+    {"id": "P07", "trilha": "devops", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["!automacao"]}, "descricao": "SE não gosta de automação ENTÃO penaliza DevOps"},
+    {"id": "P08", "trilha": "devops", "tipo": "penalidade", "peso": -1, "condicao": {"todas": ["obj_escala", "!obj_disponibilidade"]}, "descricao": "SE prefere arquitetar a operar/automatizar ENTÃO penaliza DevOps (DevOps × Cloud)"},
+
+    {"id": "R31", "trilha": "cloud", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["nuvem"]}, "descricao": "SE gosta de plataformas de nuvem ENTÃO Cloud"},
+    {"id": "R32", "trilha": "cloud", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_escala"]}, "descricao": "SE quer desenhar infraestruturas escaláveis ENTÃO Cloud"},
+    {"id": "R33", "trilha": "cloud", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["redes_linux"]}, "descricao": "SE gosta de redes e Linux ENTÃO Cloud"},
+    {"id": "R34", "trilha": "cloud", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["comunicacao"]}, "descricao": "SE comunica bem ENTÃO Cloud (arquitetura com stakeholders)"},
+    {"id": "R35", "trilha": "cloud", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["nuvem", "obj_escala"]}, "descricao": "SE nuvem E escalabilidade ENTÃO perfil arquiteto cloud"},
+    {"id": "P09", "trilha": "cloud", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["!nuvem"]}, "descricao": "SE não gosta de nuvem ENTÃO penaliza Cloud"},
+    {"id": "P10", "trilha": "cloud", "tipo": "penalidade", "peso": -1, "condicao": {"todas": ["obj_disponibilidade", "!obj_escala"]}, "descricao": "SE prefere operar/automatizar a arquitetar ENTÃO penaliza Cloud (Cloud × DevOps)"},
+
+    {"id": "R36", "trilha": "mobile", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["mobile"]}, "descricao": "SE gosta de dispositivos móveis ENTÃO Mobile"},
+    {"id": "R37", "trilha": "mobile", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_apps"]}, "descricao": "SE quer publicar apps nas lojas ENTÃO Mobile"},
+    {"id": "R38", "trilha": "mobile", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["design"]}, "descricao": "SE gosta de design ENTÃO Mobile"},
+    {"id": "R39", "trilha": "mobile", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["obj_interface"]}, "descricao": "SE quer construir o produto que o usuário vê ENTÃO Mobile"},
+    {"id": "R40", "trilha": "mobile", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["mobile", "obj_apps"]}, "descricao": "SE mobile E apps nas lojas ENTÃO perfil Mobile"},
+    {"id": "P11", "trilha": "mobile", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["web", "!mobile"]}, "descricao": "SE prefere web e não gosta de mobile ENTÃO penaliza Mobile (Mobile × Front)"},
+
+    {"id": "R41", "trilha": "qa", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["testes"]}, "descricao": "SE gosta de testes ENTÃO QA"},
+    {"id": "R42", "trilha": "qa", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_qualidade"]}, "descricao": "SE quer garantir software sem falhas ENTÃO QA"},
+    {"id": "R43", "trilha": "qa", "tipo": "afinidade", "peso": 2, "condicao": {"todas": ["detalhismo"]}, "descricao": "SE é detalhista ENTÃO QA"},
+    {"id": "R44", "trilha": "qa", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["curiosidade"]}, "descricao": "SE gosta de quebrar coisas ENTÃO QA"},
+    {"id": "R45", "trilha": "qa", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["testes", "automacao"]}, "descricao": "SE testes E automação ENTÃO perfil QA de automação"},
+    {"id": "P12", "trilha": "qa", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["!detalhismo"]}, "descricao": "SE não tem paciência para detalhes ENTÃO penaliza QA"},
+
+    {"id": "R46", "trilha": "produto", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["comunicacao"]}, "descricao": "SE comunica bem ENTÃO Product Management"},
+    {"id": "R47", "trilha": "produto", "tipo": "afinidade", "peso": 3, "condicao": {"todas": ["obj_estrategia"]}, "descricao": "SE quer definir a visão do produto ENTÃO Product Management"},
+    {"id": "R48", "trilha": "produto", "tipo": "afinidade", "peso": 2, "condicao": {"todas": ["organizacao"]}, "descricao": "SE gosta de organizar prioridades ENTÃO Product Management"},
+    {"id": "R49", "trilha": "produto", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["obj_interface"]}, "descricao": "SE pensa no produto que o usuário vê ENTÃO Product Management"},
+    {"id": "R50", "trilha": "produto", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["comunicacao", "obj_estrategia"]}, "descricao": "SE comunicação E visão estratégica ENTÃO perfil de negócios (PM)"},
+    {"id": "P13", "trilha": "produto", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["!comunicacao"]}, "descricao": "SE não gosta de lidar com pessoas ENTÃO penaliza Product Management"}
+  ]
+}
