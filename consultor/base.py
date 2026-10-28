@@ -8,8 +8,9 @@ import json
 from pathlib import Path
 
 CAMINHO_PADRAO = Path(__file__).with_name("regras_carreiras.json")
-SECOES = ("parametros", "escala", "etapas", "trilhas", "perguntas", "regras")
+SECOES = ("parametros", "escala", "escala_conhecimento", "etapas", "trilhas", "perguntas", "regras", "roadmaps")
 TIPOS_REGRA = ("afinidade", "combinada", "penalidade")
+NIVEIS_ENTRADA = ("iniciante", "intermediário", "avançado")
 
 
 class BaseInvalida(ValueError):
@@ -73,3 +74,58 @@ def validar_base(base: dict) -> None:
     sem_regras = [t for t, n in positivas.items() if n == 0]
     if sem_regras:
         raise BaseInvalida(f"Trilhas sem regras positivas: {', '.join(sem_regras)}")
+
+    validar_roadmaps(base)
+
+
+def _inteiro_entre(valor, lo, hi) -> bool:
+    return isinstance(valor, int) and not isinstance(valor, bool) and lo <= valor <= hi
+
+
+def validar_roadmaps(base: dict) -> None:
+    """Checa competências, certificações e projetos de portfólio de cada trilha."""
+    escala = base["escala_conhecimento"]
+    lo, hi = escala["min"], escala["max"]
+    if lo != 0 or hi <= lo:
+        raise BaseInvalida("Escala de conhecimento inválida: deve começar em 0 e ter 'max' maior que 'min'")
+
+    roadmaps = base["roadmaps"]
+    sem_roadmap = [t for t in base["trilhas"] if t not in roadmaps]
+    if sem_roadmap:
+        raise BaseInvalida(f"Trilhas sem roadmap: {', '.join(sem_roadmap)}")
+
+    for trilha, roadmap in roadmaps.items():
+        if trilha not in base["trilhas"]:
+            raise BaseInvalida(f"Roadmap de trilha inexistente: {trilha}")
+        for secao in ("competencias", "certificacoes", "projetos_portfolio"):
+            if not roadmap.get(secao):
+                raise BaseInvalida(f"Roadmap de {trilha} sem '{secao}'")
+
+        competencias = set()
+        for c in roadmap["competencias"]:
+            if c["id"] in competencias:
+                raise BaseInvalida(f"Competência duplicada em {trilha}: {c['id']}")
+            competencias.add(c["id"])
+            if not _inteiro_entre(c["nivel_junior"], lo + 1, hi):
+                raise BaseInvalida(f"Competência {trilha}/{c['id']}: nível júnior deve estar entre {lo + 1} e {hi}")
+            if not _inteiro_entre(c["importancia"], 1, 3):
+                raise BaseInvalida(f"Competência {trilha}/{c['id']}: importância deve estar entre 1 e 3")
+            if not c.get("tecnologias"):
+                raise BaseInvalida(f"Competência {trilha}/{c['id']} sem tecnologias")
+
+        for cert in roadmap["certificacoes"]:
+            if cert["nivel_entrada"] not in NIVEIS_ENTRADA:
+                raise BaseInvalida(f"Certificação '{cert['nome']}' tem nível de entrada inválido: {cert['nivel_entrada']}")
+            if not _inteiro_entre(cert["prontidao_minima"], 0, 100):
+                raise BaseInvalida(f"Certificação '{cert['nome']}': prontidão mínima deve estar entre 0 e 100")
+
+        titulos = set()
+        for projeto in roadmap["projetos_portfolio"]:
+            if projeto["titulo"] in titulos:
+                raise BaseInvalida(f"Projeto duplicado em {trilha}: {projeto['titulo']}")
+            titulos.add(projeto["titulo"])
+            if not projeto.get("competencias"):
+                raise BaseInvalida(f"Projeto '{projeto['titulo']}' não cobre nenhuma competência")
+            for comp in projeto["competencias"]:
+                if comp not in competencias:
+                    raise BaseInvalida(f"Projeto '{projeto['titulo']}' aponta para competência inexistente: {comp}")

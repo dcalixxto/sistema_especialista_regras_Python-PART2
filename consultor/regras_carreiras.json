@@ -3,7 +3,8 @@
   "descricao": "Base de conhecimento do Consultor Avançado de Carreiras em TI. Cada regra SE-ENTÃO tem um peso; o grau de ativação vem das respostas na escala Likert (1 a 5).",
   "parametros": {
     "limiar_empate": 5.0,
-    "limiar_regra_forte": 0.75
+    "limiar_regra_forte": 0.75,
+    "horas_por_nivel": 30
   },
   "escala": {
     "min": 1,
@@ -14,6 +15,16 @@
       "3": "Afinidade moderada",
       "4": "Muita afinidade",
       "5": "Total afinidade"
+    }
+  },
+  "escala_conhecimento": {
+    "min": 0,
+    "max": 3,
+    "rotulos": {
+      "0": "Nenhum",
+      "1": "Básico",
+      "2": "Intermediário",
+      "3": "Avançado"
     }
   },
   "etapas": [
@@ -138,5 +149,207 @@
     {"id": "R49", "trilha": "produto", "tipo": "afinidade", "peso": 1, "condicao": {"todas": ["obj_interface"]}, "descricao": "SE pensa no produto que o usuário vê ENTÃO Product Management"},
     {"id": "R50", "trilha": "produto", "tipo": "combinada", "peso": 2, "condicao": {"todas": ["comunicacao", "obj_estrategia"]}, "descricao": "SE comunicação E visão estratégica ENTÃO perfil de negócios (PM)"},
     {"id": "P13", "trilha": "produto", "tipo": "penalidade", "peso": -2, "condicao": {"todas": ["!comunicacao"]}, "descricao": "SE não gosta de lidar com pessoas ENTÃO penaliza Product Management"}
-  ]
+  ],
+  "roadmaps": {
+    "backend": {
+      "competencias": [
+        {"id": "prog_backend",  "nome": "Linguagem de programação back-end", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Python", "Java", "C#", "Node.js"]},
+        {"id": "apis_rest",     "nome": "APIs REST e protocolo HTTP",        "nivel_junior": 2, "importancia": 3, "tecnologias": ["HTTP", "REST", "JSON", "FastAPI", "Spring Boot"]},
+        {"id": "sql_bd",        "nome": "Bancos de dados relacionais e SQL", "nivel_junior": 2, "importancia": 3, "tecnologias": ["SQL", "PostgreSQL", "MySQL", "ORM"]},
+        {"id": "git",           "nome": "Versionamento com Git",             "nivel_junior": 2, "importancia": 2, "tecnologias": ["Git", "GitHub", "Pull Requests"]},
+        {"id": "testes_unit",   "nome": "Testes automatizados",              "nivel_junior": 1, "importancia": 2, "tecnologias": ["pytest", "JUnit", "Testes de integração"]},
+        {"id": "docker_basico", "nome": "Contêineres e deploy básico",       "nivel_junior": 1, "importancia": 1, "tecnologias": ["Docker", "Docker Compose", "Linux"]}
+      ],
+      "certificacoes": [
+        {"nome": "PCEP – Certified Entry-Level Python Programmer", "emissor": "Python Institute", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "PCAP – Certified Associate Python Programmer", "emissor": "Python Institute", "nivel_entrada": "intermediário", "prontidao_minima": 50},
+        {"nome": "Oracle Certified Professional: Java SE Developer", "emissor": "Oracle", "nivel_entrada": "intermediário", "prontidao_minima": 70}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "API REST de tarefas com autenticação", "descricao": "CRUD completo com FastAPI ou Spring Boot, autenticação JWT, PostgreSQL e documentação OpenAPI.", "competencias": ["apis_rest", "prog_backend", "sql_bd"]},
+        {"titulo": "Encurtador de URLs com testes e Docker", "descricao": "Serviço com estatísticas de acesso, cobertura de testes automatizados e execução via Docker Compose.", "competencias": ["prog_backend", "testes_unit", "docker_basico"]},
+        {"titulo": "Back-end de loja virtual simplificada", "descricao": "Catálogo, carrinho e pedidos com migrations, relacionamentos no banco e histórico de commits organizado.", "competencias": ["sql_bd", "apis_rest", "git"]}
+      ]
+    },
+    "frontend": {
+      "competencias": [
+        {"id": "html_css",        "nome": "HTML semântico e CSS responsivo", "nivel_junior": 2, "importancia": 3, "tecnologias": ["HTML5", "CSS3", "Flexbox", "Grid"]},
+        {"id": "javascript",      "nome": "JavaScript e TypeScript",         "nivel_junior": 2, "importancia": 3, "tecnologias": ["JavaScript ES6+", "TypeScript", "DOM"]},
+        {"id": "framework_front", "nome": "Framework reativo",               "nivel_junior": 2, "importancia": 3, "tecnologias": ["React", "Vue", "Angular"]},
+        {"id": "ux_ui",           "nome": "Fundamentos de UX/UI",            "nivel_junior": 1, "importancia": 2, "tecnologias": ["Figma", "Acessibilidade (WCAG)", "Design System"]},
+        {"id": "consumo_api",     "nome": "Consumo de APIs",                 "nivel_junior": 2, "importancia": 2, "tecnologias": ["Fetch", "Axios", "REST", "JSON"]},
+        {"id": "git",             "nome": "Versionamento com Git",           "nivel_junior": 2, "importancia": 2, "tecnologias": ["Git", "GitHub"]}
+      ],
+      "certificacoes": [
+        {"nome": "Responsive Web Design", "emissor": "freeCodeCamp", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "Meta Front-End Developer Professional Certificate", "emissor": "Meta / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 30},
+        {"nome": "Google UX Design Professional Certificate", "emissor": "Google / Coursera", "nivel_entrada": "intermediário", "prontidao_minima": 50}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Portfólio pessoal responsivo", "descricao": "Site com seus projetos, layout mobile-first, boa nota no Lighthouse e publicado no GitHub Pages.", "competencias": ["html_css", "ux_ui", "git"]},
+        {"titulo": "Catálogo de filmes consumindo API pública", "descricao": "Aplicação em React com busca, paginação, favoritos e tratamento de erros de rede.", "competencias": ["framework_front", "consumo_api", "javascript"]},
+        {"titulo": "Gerenciador de tarefas acessível em TypeScript", "descricao": "Kanban com arrastar e soltar, navegação por teclado e componentes reutilizáveis.", "competencias": ["javascript", "framework_front", "ux_ui"]}
+      ]
+    },
+    "dados_ml": {
+      "competencias": [
+        {"id": "python_dados",  "nome": "Python para dados",                   "nivel_junior": 2, "importancia": 3, "tecnologias": ["Python", "Pandas", "NumPy", "Jupyter"]},
+        {"id": "estatistica",   "nome": "Estatística e probabilidade",         "nivel_junior": 2, "importancia": 3, "tecnologias": ["Estatística descritiva", "Inferência", "Testes de hipótese"]},
+        {"id": "ml",            "nome": "Machine Learning supervisionado",     "nivel_junior": 2, "importancia": 3, "tecnologias": ["scikit-learn", "Regressão", "Classificação", "Validação cruzada"]},
+        {"id": "sql_analise",   "nome": "SQL para análise",                    "nivel_junior": 2, "importancia": 2, "tecnologias": ["SQL", "PostgreSQL", "BigQuery"]},
+        {"id": "visualizacao",  "nome": "Visualização e comunicação de dados", "nivel_junior": 1, "importancia": 2, "tecnologias": ["Matplotlib", "Seaborn", "Power BI"]},
+        {"id": "deep_learning", "nome": "Fundamentos de Deep Learning",        "nivel_junior": 1, "importancia": 1, "tecnologias": ["PyTorch", "TensorFlow", "Redes neurais"]}
+      ],
+      "certificacoes": [
+        {"nome": "Google Data Analytics Professional Certificate", "emissor": "Google / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "Microsoft Azure AI Fundamentals (AI-900)", "emissor": "Microsoft", "nivel_entrada": "iniciante", "prontidao_minima": 20},
+        {"nome": "Microsoft Azure Data Scientist Associate (DP-100)", "emissor": "Microsoft", "nivel_entrada": "intermediário", "prontidao_minima": 70}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Análise exploratória de dados abertos", "descricao": "Notebook com limpeza, estatísticas e gráficos sobre dados públicos (IBGE, DATASUS ou INEP), com conclusões escritas.", "competencias": ["python_dados", "estatistica", "visualizacao"]},
+        {"titulo": "Modelo de previsão de evasão de clientes (churn)", "descricao": "Pipeline de treino com scikit-learn, comparação com uma rede neural simples e métricas de avaliação.", "competencias": ["ml", "python_dados", "deep_learning"]},
+        {"titulo": "Dashboard de vendas com SQL e Power BI", "descricao": "Consultas SQL sobre uma base de vendas e painel interativo com indicadores do negócio.", "competencias": ["sql_analise", "visualizacao"]}
+      ]
+    },
+    "eng_dados": {
+      "competencias": [
+        {"id": "python_eng",    "nome": "Python para engenharia de dados",       "nivel_junior": 2, "importancia": 3, "tecnologias": ["Python", "Pandas", "PySpark"]},
+        {"id": "sql_modelagem", "nome": "SQL avançado e modelagem dimensional",  "nivel_junior": 2, "importancia": 3, "tecnologias": ["SQL", "Star Schema", "PostgreSQL"]},
+        {"id": "etl",           "nome": "Pipelines ETL/ELT e orquestração",      "nivel_junior": 2, "importancia": 3, "tecnologias": ["Apache Airflow", "dbt", "Cron"]},
+        {"id": "big_data",      "nome": "Processamento distribuído",             "nivel_junior": 1, "importancia": 2, "tecnologias": ["Apache Spark", "Kafka", "Parquet"]},
+        {"id": "cloud_dados",   "nome": "Armazenamento de dados em nuvem",       "nivel_junior": 1, "importancia": 2, "tecnologias": ["Amazon S3", "BigQuery", "Data Lake", "Snowflake"]},
+        {"id": "docker_basico", "nome": "Contêineres e Linux",                   "nivel_junior": 1, "importancia": 1, "tecnologias": ["Docker", "Linux", "Bash"]}
+      ],
+      "certificacoes": [
+        {"nome": "dbt Fundamentals", "emissor": "dbt Labs", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "Databricks Certified Data Engineer Associate", "emissor": "Databricks", "nivel_entrada": "intermediário", "prontidao_minima": 60},
+        {"nome": "AWS Certified Data Engineer – Associate", "emissor": "Amazon Web Services", "nivel_entrada": "intermediário", "prontidao_minima": 70}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Pipeline ETL de dados abertos com Airflow", "descricao": "Extração diária de uma API pública, transformação em Python e carga no PostgreSQL, tudo em contêineres.", "competencias": ["etl", "python_eng", "docker_basico"]},
+        {"titulo": "Data Warehouse dimensional com dbt", "descricao": "Modelagem em estrela com tabelas fato e dimensão, testes de qualidade de dados e documentação gerada pelo dbt.", "competencias": ["sql_modelagem", "etl"]},
+        {"titulo": "Processamento de logs com Spark em um Data Lake", "descricao": "Leitura de logs brutos, agregação com PySpark e gravação em Parquet particionado num bucket de nuvem.", "competencias": ["big_data", "cloud_dados", "python_eng"]}
+      ]
+    },
+    "seguranca": {
+      "competencias": [
+        {"id": "redes",           "nome": "Redes de computadores (TCP/IP)",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["TCP/IP", "DNS", "Wireshark", "Firewalls"]},
+        {"id": "linux_seg",       "nome": "Linux e linha de comando",                "nivel_junior": 2, "importancia": 3, "tecnologias": ["Linux", "Bash", "Permissões"]},
+        {"id": "fundamentos_seg", "nome": "Fundamentos de segurança e criptografia", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Tríade CIA", "Criptografia", "PKI", "OWASP Top 10"]},
+        {"id": "pentest",         "nome": "Análise de vulnerabilidades e pentest",   "nivel_junior": 1, "importancia": 2, "tecnologias": ["Nmap", "Burp Suite", "Metasploit", "Kali Linux"]},
+        {"id": "scripting_seg",   "nome": "Scripting para segurança",                "nivel_junior": 1, "importancia": 2, "tecnologias": ["Python", "Bash", "PowerShell"]},
+        {"id": "monitoramento",   "nome": "Monitoramento e resposta a incidentes",   "nivel_junior": 1, "importancia": 2, "tecnologias": ["SIEM", "Wazuh", "Splunk", "Análise de logs"]}
+      ],
+      "certificacoes": [
+        {"nome": "Certified in Cybersecurity (CC)", "emissor": "ISC2", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "CompTIA Security+", "emissor": "CompTIA", "nivel_entrada": "iniciante", "prontidao_minima": 40},
+        {"nome": "eJPT – Junior Penetration Tester", "emissor": "INE Security", "nivel_entrada": "intermediário", "prontidao_minima": 60}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Laboratório de pentest em máquinas vulneráveis", "descricao": "Ambiente virtual com DVWA e Metasploitable, exploração documentada e relatório técnico com recomendações.", "competencias": ["pentest", "redes", "linux_seg"]},
+        {"titulo": "Scanner de portas e serviços em Python", "descricao": "Ferramenta de linha de comando que identifica portas abertas e versões de serviços, com saída em JSON.", "competencias": ["scripting_seg", "redes"]},
+        {"titulo": "SIEM caseiro com Wazuh", "descricao": "Coleta de logs de máquinas Linux, regras de detecção de força bruta e painel de alertas.", "competencias": ["monitoramento", "linux_seg", "fundamentos_seg"]}
+      ]
+    },
+    "devops": {
+      "competencias": [
+        {"id": "linux_devops",    "nome": "Linux e Shell Script",             "nivel_junior": 2, "importancia": 3, "tecnologias": ["Linux", "Bash", "SSH"]},
+        {"id": "git_ci",          "nome": "Git e CI/CD",                      "nivel_junior": 2, "importancia": 3, "tecnologias": ["Git", "GitHub Actions", "GitLab CI", "Jenkins"]},
+        {"id": "containers",      "nome": "Contêineres e orquestração",       "nivel_junior": 2, "importancia": 3, "tecnologias": ["Docker", "Docker Compose", "Kubernetes"]},
+        {"id": "iac",             "nome": "Infraestrutura como código",       "nivel_junior": 1, "importancia": 2, "tecnologias": ["Terraform", "Ansible"]},
+        {"id": "observabilidade", "nome": "Monitoramento e observabilidade",  "nivel_junior": 1, "importancia": 2, "tecnologias": ["Prometheus", "Grafana", "Alertas"]},
+        {"id": "cloud_basico",    "nome": "Fundamentos de nuvem",             "nivel_junior": 1, "importancia": 2, "tecnologias": ["AWS", "Azure", "GCP"]}
+      ],
+      "certificacoes": [
+        {"nome": "Linux Essentials", "emissor": "Linux Professional Institute (LPI)", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "HashiCorp Certified: Terraform Associate", "emissor": "HashiCorp", "nivel_entrada": "intermediário", "prontidao_minima": 50},
+        {"nome": "Certified Kubernetes Administrator (CKA)", "emissor": "CNCF / Linux Foundation", "nivel_entrada": "intermediário", "prontidao_minima": 75}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Pipeline CI/CD para uma API em contêiner", "descricao": "GitHub Actions rodando testes, gerando a imagem Docker e publicando automaticamente a cada push na main.", "competencias": ["git_ci", "containers"]},
+        {"titulo": "Infraestrutura provisionada com Terraform", "descricao": "Rede, máquina virtual e banco gerenciado criados e destruídos por código, com variáveis por ambiente.", "competencias": ["iac", "cloud_basico"]},
+        {"titulo": "Stack de monitoramento com Prometheus e Grafana", "descricao": "Coleta de métricas de serviços em Docker, painéis e alertas, configurados em um servidor Linux.", "competencias": ["observabilidade", "containers", "linux_devops"]}
+      ]
+    },
+    "cloud": {
+      "competencias": [
+        {"id": "fundamentos_cloud", "nome": "Conceitos de computação em nuvem",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["IaaS/PaaS/SaaS", "Regiões e zonas", "Responsabilidade compartilhada"]},
+        {"id": "servicos_core",     "nome": "Serviços essenciais (computação, armazenamento, rede)", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Amazon EC2", "Amazon S3", "Azure VMs", "Blob Storage"]},
+        {"id": "redes_cloud",       "nome": "Redes e segurança na nuvem",                "nivel_junior": 2, "importancia": 2, "tecnologias": ["VPC", "Sub-redes", "Security Groups", "IAM"]},
+        {"id": "iac",               "nome": "Infraestrutura como código",                "nivel_junior": 1, "importancia": 2, "tecnologias": ["Terraform", "CloudFormation", "Bicep"]},
+        {"id": "custos",            "nome": "Gestão de custos (FinOps)",                 "nivel_junior": 1, "importancia": 2, "tecnologias": ["AWS Cost Explorer", "Budgets", "Tags de custo"]},
+        {"id": "containers",        "nome": "Contêineres e serverless",                  "nivel_junior": 1, "importancia": 2, "tecnologias": ["Docker", "AWS Lambda", "Amazon ECS", "Kubernetes"]}
+      ],
+      "certificacoes": [
+        {"nome": "AWS Certified Cloud Practitioner", "emissor": "Amazon Web Services", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "Microsoft Azure Fundamentals (AZ-900)", "emissor": "Microsoft", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "AWS Certified Solutions Architect – Associate", "emissor": "Amazon Web Services", "nivel_entrada": "intermediário", "prontidao_minima": 60}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Site estático na nuvem com CDN e HTTPS", "descricao": "Hospedagem em bucket de armazenamento, distribuição por CDN, certificado TLS e domínio próprio.", "competencias": ["servicos_core", "fundamentos_cloud"]},
+        {"titulo": "Arquitetura de três camadas com Terraform", "descricao": "Balanceador de carga, aplicação em sub-rede privada e banco gerenciado, com regras de acesso mínimas.", "competencias": ["iac", "redes_cloud", "servicos_core"]},
+        {"titulo": "API serverless com alerta de orçamento", "descricao": "Funções Lambda atrás de um API Gateway, com tags de custo e alerta quando o gasto passar do limite.", "competencias": ["containers", "custos"]}
+      ]
+    },
+    "mobile": {
+      "competencias": [
+        {"id": "linguagem_mobile", "nome": "Linguagem para mobile",                  "nivel_junior": 2, "importancia": 3, "tecnologias": ["Kotlin", "Swift", "Dart"]},
+        {"id": "framework_mobile", "nome": "Framework de interface mobile",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["Jetpack Compose", "SwiftUI", "Flutter", "React Native"]},
+        {"id": "consumo_api",      "nome": "Consumo de APIs e persistência local",   "nivel_junior": 2, "importancia": 2, "tecnologias": ["Retrofit", "REST", "SQLite", "Room"]},
+        {"id": "ux_mobile",        "nome": "UX para dispositivos móveis",            "nivel_junior": 1, "importancia": 2, "tecnologias": ["Material Design", "Human Interface Guidelines"]},
+        {"id": "publicacao",       "nome": "Publicação nas lojas",                   "nivel_junior": 1, "importancia": 1, "tecnologias": ["Google Play Console", "App Store Connect"]},
+        {"id": "git",              "nome": "Versionamento com Git",                  "nivel_junior": 2, "importancia": 2, "tecnologias": ["Git", "GitHub"]}
+      ],
+      "certificacoes": [
+        {"nome": "Meta Android Developer Professional Certificate", "emissor": "Meta / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "Meta iOS Developer Professional Certificate", "emissor": "Meta / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "Meta React Native Specialization", "emissor": "Meta / Coursera", "nivel_entrada": "intermediário", "prontidao_minima": 40}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "App de lista de compras com dados offline", "descricao": "CRUD de listas com banco local, funcionamento sem internet e arquitetura MVVM.", "competencias": ["linguagem_mobile", "framework_mobile", "consumo_api"]},
+        {"titulo": "App de previsão do tempo", "descricao": "Consumo de API pública, geolocalização, tema claro/escuro e telas seguindo as diretrizes da plataforma.", "competencias": ["consumo_api", "ux_mobile"]},
+        {"titulo": "App publicado em teste interno na Google Play", "descricao": "Aplicativo assinado, com ícone, capturas de tela e versões controladas por tags no Git.", "competencias": ["publicacao", "git", "framework_mobile"]}
+      ]
+    },
+    "qa": {
+      "competencias": [
+        {"id": "fundamentos_teste", "nome": "Fundamentos e técnicas de teste",      "nivel_junior": 2, "importancia": 3, "tecnologias": ["Casos de teste", "Partição de equivalência", "Valor limite", "BDD"]},
+        {"id": "automacao_ui",      "nome": "Automação de testes de interface",     "nivel_junior": 2, "importancia": 3, "tecnologias": ["Selenium", "Cypress", "Playwright"]},
+        {"id": "testes_api",        "nome": "Testes de API",                        "nivel_junior": 2, "importancia": 2, "tecnologias": ["Postman", "REST Assured", "pytest"]},
+        {"id": "programacao_qa",    "nome": "Programação para testes",              "nivel_junior": 2, "importancia": 2, "tecnologias": ["Python", "JavaScript", "Java"]},
+        {"id": "ci_testes",         "nome": "Testes em pipelines de CI/CD",         "nivel_junior": 1, "importancia": 2, "tecnologias": ["GitHub Actions", "Jenkins", "Relatórios de teste"]},
+        {"id": "gestao_bugs",       "nome": "Gestão de bugs e métricas de qualidade", "nivel_junior": 1, "importancia": 1, "tecnologias": ["Jira", "Relato de bugs", "Métricas de qualidade"]}
+      ],
+      "certificacoes": [
+        {"nome": "ISTQB Certified Tester Foundation Level (CTFL)", "emissor": "ISTQB / BSTQB", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "ISTQB Agile Tester (CTFL-AT)", "emissor": "ISTQB / BSTQB", "nivel_entrada": "intermediário", "prontidao_minima": 40},
+        {"nome": "ISTQB Test Automation Engineer (CTAL-TAE)", "emissor": "ISTQB / BSTQB", "nivel_entrada": "intermediário", "prontidao_minima": 75}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Suíte de testes E2E com Playwright", "descricao": "Testes de ponta a ponta de um site público, com Page Objects e execução em vários navegadores.", "competencias": ["automacao_ui", "programacao_qa"]},
+        {"titulo": "Testes de API com Postman e Newman no CI", "descricao": "Coleção de testes de contrato e de erro executada no GitHub Actions a cada commit, com relatório HTML.", "competencias": ["testes_api", "ci_testes"]},
+        {"titulo": "Plano de testes completo de um sistema real", "descricao": "Estratégia, casos de teste por técnica, bugs reportados com evidências e métricas de qualidade.", "competencias": ["fundamentos_teste", "gestao_bugs"]}
+      ]
+    },
+    "produto": {
+      "competencias": [
+        {"id": "discovery",       "nome": "Product discovery e pesquisa com usuários", "nivel_junior": 2, "importancia": 3, "tecnologias": ["Entrevistas", "Personas", "Jobs to be Done"]},
+        {"id": "agil",            "nome": "Métodos ágeis",                             "nivel_junior": 2, "importancia": 3, "tecnologias": ["Scrum", "Kanban", "Jira"]},
+        {"id": "priorizacao",     "nome": "Priorização e roadmap de produto",          "nivel_junior": 2, "importancia": 3, "tecnologias": ["RICE", "MoSCoW", "OKRs"]},
+        {"id": "metricas",        "nome": "Métricas e análise de produto",             "nivel_junior": 1, "importancia": 2, "tecnologias": ["KPIs", "Funil de conversão", "Google Analytics", "SQL básico"]},
+        {"id": "fundamentos_tec", "nome": "Fundamentos técnicos de software",          "nivel_junior": 1, "importancia": 2, "tecnologias": ["APIs", "Arquitetura web", "Ciclo de desenvolvimento"]},
+        {"id": "prototipacao",    "nome": "Prototipação e UX",                         "nivel_junior": 1, "importancia": 1, "tecnologias": ["Figma", "Wireframes", "Testes de usabilidade"]}
+      ],
+      "certificacoes": [
+        {"nome": "Google Project Management Professional Certificate", "emissor": "Google / Coursera", "nivel_entrada": "iniciante", "prontidao_minima": 0},
+        {"nome": "Professional Scrum Master I (PSM I)", "emissor": "Scrum.org", "nivel_entrada": "iniciante", "prontidao_minima": 20},
+        {"nome": "Professional Scrum Product Owner I (PSPO I)", "emissor": "Scrum.org", "nivel_entrada": "intermediário", "prontidao_minima": 50}
+      ],
+      "projetos_portfolio": [
+        {"titulo": "Estudo de caso de discovery", "descricao": "Entrevistas com usuários reais, mapa de oportunidades e protótipo navegável validado em teste de usabilidade.", "competencias": ["discovery", "prototipacao"]},
+        {"titulo": "Roadmap e backlog priorizado de um aplicativo", "descricao": "Visão do produto, OKRs, épicos e histórias priorizadas com RICE, organizados num quadro ágil público.", "competencias": ["priorizacao", "agil"]},
+        {"titulo": "Painel de métricas de produto", "descricao": "Definição de KPIs e funil de um produto fictício, com consultas SQL e explicação da arquitetura que gera os dados.", "competencias": ["metricas", "fundamentos_tec"]}
+      ]
+    }
+  }
 }
