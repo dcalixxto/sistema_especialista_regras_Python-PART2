@@ -8,6 +8,8 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from consultor import analisar_gaps, carregar_base, diagnosticar, gerar_roadmap
+from consultor.base import termos
+from consultor.personas import AMBIGUAS, avaliar_ambiguas, avaliar_personas
 
 st.set_page_config(page_title="Consultor de Carreiras em TI", page_icon="🧭", layout="wide")
 
@@ -149,7 +151,6 @@ def plano_markdown(nome: str, plano) -> str:
 # --- Passos ----------------------------------------------------------------
 
 def cabecalho() -> None:
-    st.title("🧭 Consultor Avançado de Carreiras em TI")
     titulos = [ETAPAS[PASSOS[i]]["titulo"] for i in (1, 2, 3)] + ["Resultado"]
     st.progress(estado.passo / TOTAL_PASSOS, text=f"Passo {estado.passo} de {TOTAL_PASSOS}: {titulos[estado.passo - 1]}")
 
@@ -287,17 +288,90 @@ def passo_resultado() -> None:
     botoes_navegacao()
 
 
+# --- Validação e base de conhecimento --------------------------------------
+
+def aba_validacao() -> None:
+    st.header("✅ Validação com personas (Fase 5)")
+    st.caption("Perfis típicos de cada trilha e perfis ambíguos ou extremos, rodados no motor com a base atual. "
+               "Os mesmos casos são verificados automaticamente em tests/test_personas.py.")
+
+    personas = pd.DataFrame(avaliar_personas(BASE))
+    acertos = int(personas["Acertou"].sum())
+    ambiguas = avaliar_ambiguas(BASE)
+    conformes = sum(linha["Conforme"] for linha in ambiguas)
+    m1, m2, m3 = st.columns(3)
+    m1.metric("Taxa de acerto (perfis típicos)", f"{100 * acertos / len(personas):.0f}%", f"{acertos} de {len(personas)}")
+    m2.metric("Margem média sobre a 2ª colocada", f"{personas['Margem (p.p.)'].mean():.1f} p.p.")
+    m3.metric("Casos ambíguos/limite conformes", f"{conformes} de {len(ambiguas)}")
+
+    st.subheader("Esperado × obtido")
+    st.dataframe(personas, hide_index=True, width="stretch",
+                 column_config={"% obtida": st.column_config.NumberColumn(format="%.1f%%"),
+                                "% esperada": st.column_config.NumberColumn(format="%.1f%%")})
+
+    st.subheader("Perfis ambíguos e casos limite")
+    for persona, linha in zip(AMBIGUAS, ambiguas):
+        with st.expander(f"{'✅' if linha['Conforme'] else '❌'} {persona.nome}", expanded=bool(persona.em_disputa)):
+            st.markdown(f"*{persona.descricao}*  \n**Esperado:** {persona.comportamento}")
+            st.markdown(f"**Top 3:** {linha['Top 3']}  \n"
+                        f"Margem entre 1ª e 2ª: {linha['Margem (p.p.)']} p.p. · certeza {linha['Certeza']:.0%}")
+            if linha["Empate parcial"]:
+                st.warning("⚖️ Empate parcial sinalizado: as primeiras colocadas ficaram a menos de "
+                           f"{BASE['parametros']['limiar_empate']} p.p. de distância.")
+            else:
+                st.info("Sem empate parcial.")
+
+
+def aba_base() -> None:
+    st.header("📚 Base de conhecimento")
+    st.caption(f"Conteúdo de consultor/regras_carreiras.json (versão {BASE.get('versao', '—')}). "
+               "Alterar regras e pesos no arquivo muda o diagnóstico sem tocar no código.")
+    trilhas = BASE["trilhas"]
+    regras = pd.DataFrame([{
+        "ID": r["id"], "Trilha": f"{trilhas[r['trilha']]['icone']} {trilhas[r['trilha']]['nome']}",
+        "Tipo": r["tipo"], "Peso": r["peso"],
+        "Condição": (" E " if "todas" in r["condicao"] else " OU ").join(termos(r)),
+        "Descrição": r["descricao"],
+    } for r in BASE["regras"]])
+
+    m1, m2, m3 = st.columns(3)
+    m1.metric("Trilhas", len(trilhas))
+    m2.metric("Perguntas", len(BASE["perguntas"]))
+    m3.metric("Regras", len(regras), f"{(regras['Tipo'] == 'penalidade').sum()} penalidades", delta_color="off")
+
+    col1, col2 = st.columns(2)
+    filtro_trilha = col1.multiselect("Filtrar por trilha", sorted(regras["Trilha"].unique()))
+    filtro_tipo = col2.multiselect("Filtrar por tipo", ["afinidade", "combinada", "penalidade"])
+    if filtro_trilha:
+        regras = regras[regras["Trilha"].isin(filtro_trilha)]
+    if filtro_tipo:
+        regras = regras[regras["Tipo"].isin(filtro_tipo)]
+    st.dataframe(regras, hide_index=True, width="stretch")
+    st.caption("Na condição, `!x` significa baixa afinidade com x (grau = 1 − intensidade de x).")
+
+    with st.expander("Perguntas por etapa"):
+        st.dataframe(pd.DataFrame([{"Etapa": ETAPAS[p["etapa"]]["titulo"], "ID": p["id"], "Pergunta": p["texto"]}
+                                   for p in BASE["perguntas"]]), hide_index=True, width="stretch")
+
+
 # --- Página ----------------------------------------------------------------
 
-cabecalho()
-if estado.passo == 1:
-    passo_perfil()
-elif estado.passo == 2:
-    passo_likert(2, "🛠️")
-elif estado.passo == 3:
-    passo_likert(3, "🎯")
-else:
-    passo_resultado()
+st.title("🧭 Consultor Avançado de Carreiras em TI")
+aba_consultor, aba_val, aba_conhecimento = st.tabs(["🧭 Consultor", "✅ Validação", "📚 Base de conhecimento"])
+with aba_consultor:
+    cabecalho()
+    if estado.passo == 1:
+        passo_perfil()
+    elif estado.passo == 2:
+        passo_likert(2, "🛠️")
+    elif estado.passo == 3:
+        passo_likert(3, "🎯")
+    else:
+        passo_resultado()
+with aba_val:
+    aba_validacao()
+with aba_conhecimento:
+    aba_base()
 
 with st.sidebar:
     st.markdown("### Etapas")
